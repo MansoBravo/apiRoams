@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "9917b70d-23f9-4e01-8a58-8e86800752cf",
+		"name": "apiRoams",
+		"description": "Api para la simulación de hipotecas. Las url van con datos de ejemplo de como hacer la llamada\n\nTodos los parámetros son obligatorios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4772008"
+	},
+	"item": [
+		{
+			"name": "Crear Tablas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/apiRoams/createTables.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"apiRoams",
+						"createTables.php"
+					]
+				},
+				"description": "Creamos las tablas de la base de datos. Es lo primero que debemos ejecutar"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/apiRoams/index.php?action=user&dni=88888888Y",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"apiRoams",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "user",
+							"description": "Accion a ejecutar. Dato obligatorio"
+						},
+						{
+							"key": "dni",
+							"value": "88888888Y",
+							"description": "Dni del cliente. Dato obligatorio"
+						}
+					]
+				},
+				"description": "Llamada para la consulta del cliente, nos devolverá false si no existe el cliente. Si el cliente existe y no tiene ningúna simulación de hipoteca nos devolverá la variable tae y anos de la tabla hipotetas en null. Si ya tiene una simulación, aparte de los datos del cliente la llamada tambien nos devuelve los datos de la simulación de hipoteca"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/apiRoams/index.php?action=create&dni=88888888Y&nombre=Edu&email=b@b.es&capital=180000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"apiRoams",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "create",
+							"description": "Accion a ejecutar. Dato obligatorio"
+						},
+						{
+							"key": "dni",
+							"value": "88888888Y",
+							"description": "Dni del cliente. Dato obligatorio"
+						},
+						{
+							"key": "nombre",
+							"value": "Edu",
+							"description": "Nombre del cliente. Dato obligatorio"
+						},
+						{
+							"key": "email",
+							"value": "b@b.es",
+							"description": "Email del cliente. Dato obligatorio"
+						},
+						{
+							"key": "capital",
+							"value": "180000",
+							"description": "Capital del cliente. Dato obligatorio"
+						}
+					]
+				},
+				"description": "Llamada para la creación de clientes. Todos los campos serán obligatorios. Si ya existe ese dni, nos devolverá un 'error' de cliente existente"
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/apiRoams/index.php?action=update&dni=33333333P&nombre=Juan&email=b@b.es&capital=390000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"apiRoams",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "update",
+							"description": "Accion a ejecutar. Dato obligatorio"
+						},
+						{
+							"key": "dni",
+							"value": "33333333P",
+							"description": "Dni del cliente. Dato obligatorio"
+						},
+						{
+							"key": "nombre",
+							"value": "Juan",
+							"description": "Nombre del cliente. Dato obligatorio"
+						},
+						{
+							"key": "email",
+							"value": "b@b.es",
+							"description": "Email del cliente. Dato obligatorio"
+						},
+						{
+							"key": "capital",
+							"value": "390000",
+							"description": "Capital del cliente. Dato obligatorio"
+						}
+					]
+				},
+				"description": "StartFragment\n\nLlamada para editar la ficha de cliente. Todos los campos serán obligatorios\n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/apiRoams/index.php?action=delete&dni=33333333P",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"apiRoams",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "delete",
+							"description": "Accion a ejecutar"
+						},
+						{
+							"key": "dni",
+							"value": "33333333P",
+							"description": "Dni del cliente. Dato obligatorio"
+						}
+					]
+				},
+				"description": "Llamada para la eliminación del cliente. La simulacion de la hipoteca la mantendremos para poder tener un 'log' por si se quiere consultar mas adelante"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Editar Hipoteca",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/apiRoams/index.php?action=hipoteca&dni=88888888Y&tae=1.2&anos=30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"apiRoams",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "hipoteca",
+							"description": "Accion a ejecutar"
+						},
+						{
+							"key": "dni",
+							"value": "88888888Y",
+							"description": "Dni del cliente. Dato obligatorio"
+						},
+						{
+							"key": "tae",
+							"value": "1.2",
+							"description": "Tae de la hipoteca. Dato obligatorio"
+						},
+						{
+							"key": "anos",
+							"value": "30",
+							"description": "Años de la hipoteca. Dato obligatorio"
+						}
+					]
+				},
+				"description": "StartFragment\n\nLlamada para la simulación de la hipoteca. Todos los campos serán obligatorios. La duración siempre tiene que ir en años, nunca en meses. La misma llamada sirve para editarla si ya existe una simulacion anterior.\n\nTe devolverá un error de cliente inexistente si se manda una simulación sin haber creado antes al cliente\n\nEndFragment"
+			},
+			"response": []
+		}
+	]
+}
