@@ -9,7 +9,7 @@ Instala la carpeta apiRoams en su xampp y empieza con las pruebas
 
 ## Ejecutando las pruebas ⚙️
 En el archivo de postman veras todas las llamadas posibles con sus variables a utilizar
-
+Con una simple petición con cURL podemos acceder a los datos de la api en formato JSON
 ## Construido con 
 PHP con Sqlite3
 
